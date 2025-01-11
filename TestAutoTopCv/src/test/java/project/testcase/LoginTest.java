@@ -34,9 +34,10 @@ public class LoginTest {
         webUI.waitForPageLoaded();
     }
 
-//    @AfterClass
-//    public void tearDown() throws InterruptedException {
-//        webUI.waitForPageLoaded();
-//        driver.close();
-//    }
+    @AfterClass
+    public void tearDown() throws InterruptedException {
+        loginPage = homePage.logOut();
+        webUI.waitForPageLoaded();
+        driver.close();
+    }
 }

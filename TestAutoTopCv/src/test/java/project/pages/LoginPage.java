@@ -30,7 +30,7 @@ public class LoginPage {
         Assert.assertTrue(webUI.verifyElementText(btnSubmit, "Đăng nhập"), "Không phải trang đăng nhập");
         webUI.setText(emailInput, email);
         webUI.setText(passwordInput, password);
-        webUI.clickELement(btnSubmit);
+        webUI.clickElement(btnSubmit);
         return new HomePage(driver);
     }
 }

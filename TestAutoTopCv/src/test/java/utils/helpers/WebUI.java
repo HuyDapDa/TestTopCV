@@ -3,6 +3,7 @@ package utils.helpers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -30,7 +31,7 @@ public class WebUI {
         driver.findElement(element).sendKeys(value);
     }
 
-    public void clickELement(By element)
+    public void clickElement(By element)
     {
         wait.until(ExpectedConditions.elementToBeClickable(element));
         driver.findElement(element).click();
@@ -47,6 +48,15 @@ public class WebUI {
     {
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
         return driver.findElement(element).getText().equals(textvalue);
+    }
+
+    public boolean verifyElementDisplayed(By locator) {
+        try {
+            WebElement element = driver.findElement(locator);
+            return element.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public void waitForPageLoaded()
